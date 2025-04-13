@@ -1,0 +1,217 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input {
+  background-color: white; /* Fondo blanco */
+  border: 3px solid #646cff; /* Borde azul */
+  border-image-slice: 1;
+  border-image-source: linear-gradient(45deg, #646cff, #535bf2);
+  animation: borderAnimation 3s infinite alternate ease-in-out;
+  color: black; /* Texto negro */
+  padding: 12px; /* Espaciado interno */
+  font-size: 1.2rem; /* Tamaño de letra más grande */
+  border-radius: 8px; /* Bordes redondeados */
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(100, 108, 255, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(100, 108, 255, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(100, 108, 255, 0.5); }
+}
+@keyframes borderAnimation {
+  0% { border-image-source: linear-gradient(45deg, #646cff, #535bf2); }
+  50% { border-image-source: linear-gradient(45deg, #ff6b6b, #f94c66); }
+  100% { border-image-source: linear-gradient(45deg, #646cff, #535bf2); }
+}
+
+/* 🔥 Si el input está vacío, tendrá una animación de brillo */
+input:placeholder-shown {
+  animation: glow 1.5s infinite alternate ease-in-out;
+}
+@keyframes placeholderColor {
+  0% { color: rgba(0, 0, 0, 0.3); }
+  50% { color: rgba(100, 108, 255, 0.8); }
+  100% { color: rgba(0, 0, 0, 0.3); }
+}
+/* Placeholder más visible */
+input::placeholder {
+  animation: placeholderColor 3s infinite alternate ease-in-out;
+  font-style: italic;
+}
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  opacity: 0; /* Inicialmente oculto */
+  transform: translateY(-20px); /* Un poco arriba */
+  animation: fadeSlide 1s ease-out forwards;
+}
+
+/* 🔥 Animación de entrada para el título */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+
+  border-radius: 20px;
+  border: 2px solid #646cff;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #646cff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(100, 108, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Efecto al pasar el mouse */
+button:hover {
+  background-color: #535bf2;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(100, 108, 255, 0.6);
+}
+
+/* Efecto al hacer clic */
+button:active {
+  transform: scale(0.9) rotate(-3deg);
+  animation: clickEffect 0.4s ease-out;
+  animation: bounce 0.3s ease-in-out;
+}
+/* Animación de rebote */
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.85); } /* Se encoge */
+  70% { transform: scale(1.1); } /* Se agranda un poco */
+  100% { transform: scale(1); } /* Vuelve a la normalidad */
+}
+
+/* Animación de "onda de energía" al hacer clic */
+@keyframes clickEffect {
+  0% {
+    box-shadow: 0 0px 10px rgba(100, 108, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0px 20px rgba(100, 108, 255, 0.8);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(100, 108, 255, 0.4);
+  }
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid #ffffff; /* Contorno blanco en lugar del azul predeterminado */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efecto de brillo sutil */
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+/* 🔥 Estilos generales para la tabla */
+.truth-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(100, 108, 255, 0.4);
+}
+
+/* 🔹 Cabecera de la tabla */
+.truth-table thead {
+  background-color: #646cff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* 🔹 Celdas de encabezado */
+.truth-table th {
+  padding: 10px;
+  border: 2px solid #535bf2;
+  text-align: center;
+}
+
+/* 🔹 Filas de la tabla */
+.truth-table tbody tr {
+  transition: background 0.3s ease-in-out;
+}
+
+/* 🔹 Celdas de la tabla */
+.truth-table td {
+  padding: 8px;
+  border: 1px solid #535bf2;
+  text-align: center;
+}
+
+/* 🔥 Alternar colores en las filas */
+.truth-table tbody tr:nth-child(even) {
+  background-color: #2c2c2c;
+}
+
+/* 🔥 Efecto hover en las filas */
+.truth-table tbody tr:hover {
+  background-color: #535bf2;
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
