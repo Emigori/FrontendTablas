@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'; // o '@vitejs/plugin-react-swc'
 
 export default defineConfig({
-  base: './', // 👈 ESTA LÍNEA ES LA CLAVE
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {
